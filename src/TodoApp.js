@@ -1,11 +1,9 @@
-import { useState,useContext,useReducer } from 'react'
+import { useState,useContext} from 'react'
 import TodoObContext from './TodoObContext'
-import TodoReducer from './TodoReducer'
 function TodoApp() {
-    const todoOb=useContext(TodoObContext)
     const [item,setItem]=useState("")
     const [status,setStatus]=useState("complete")
-    const [state,dispatch] = useReducer(TodoReducer,todoOb);
+    const {state,dispatch} = useContext(TodoObContext)
     const addTodo=()=>{
         dispatch({type: "add",item:item,status:status});
     }
